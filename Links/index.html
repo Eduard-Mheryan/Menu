@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L</title>
+    <style>
+        body {
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .img {
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            cursor: pointer;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            font-size: 18px;
+            width: 250px;
+            background-color: #007BFF;
+            color: white;
+            padding: 20px;
+            position: absolute;
+            left: 20px;
+            top: 60px; /* 40px unter dem Bild */
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+            z-index: 1;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transform: translateY(-10px);
+        }
+
+        a {
+            margin: 10px 0;
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease-in-out;
+        }
+
+        a:hover {
+            color: #FFD700;
+        }
+
+        .showMenu {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+        .d {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <img class="img" src="more.png" height="30px" width="30px" onclick="Menu()" id="IMG">
+
+    <div class="container" id="container">
+        <img class="d" src="close.png" height="30px" width="30px" id="delete" onclick="Menu()">
+        <a href="#">Menu</a>
+        <a href="#">Kontakt</a>
+        <a href="#">Einstellungen</a>
+        <a href="#">Image</a>
+    </div>
+
+    <script>
+        function Menu() {
+            const container = document.getElementById('container');
+            container.classList.toggle('showMenu');
+        }
+    </script>
+</body>
+
+</html>
